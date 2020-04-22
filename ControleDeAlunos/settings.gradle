@@ -1,0 +1,2 @@
+rootProject.name='ControleDeAlunos'
+include ':app'
