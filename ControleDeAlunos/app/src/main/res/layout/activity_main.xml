@@ -6,13 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".view.main.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ScrollView
+        android:id="@+id/scr_view_main"
+        android:layout_width="326dp"
+        android:layout_height="657dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/ln_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/bt_extrato"
+                android:layout_width="126dp"
+                android:layout_height="117dp"
+                android:layout_margin="@dimen/main_button_margin"
+                android:background="@drawable/round_button"
+                android:text="@string/txt_button_extrato" />
+
+            <Button
+                android:id="@+id/bt_alunos"
+                android:layout_width="match_parent"
+                android:layout_height="117dp"
+                android:layout_margin="@dimen/main_button_margin"
+                android:text="@string/txt_alunos_todos"
+                android:background="@drawable/round_button"/>
+
+            <Button
+                android:id="@+id/bt_pesquisa_alunos"
+                android:layout_width="match_parent"
+                android:layout_height="117dp"
+                android:layout_margin="@dimen/main_button_margin"
+                android:text="@string/txt_alunos_todos"
+                android:background="@drawable/round_button"/>
+
+            <Button
+                android:id="@+id/bt_ativar"
+                android:layout_width="match_parent"
+                android:layout_height="117dp"
+                android:layout_margin="@dimen/main_button_margin"
+                android:text="@string/txt_ativar"
+                android:background="@drawable/round_button"/>
+
+            <Button
+                android:id="@+id/bt_pagar"
+                android:layout_width="match_parent"
+                android:layout_height="117dp"
+                android:layout_margin="@dimen/main_button_margin"
+                android:text="@string/txt_pagar"
+                android:background="@drawable/round_button"/>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

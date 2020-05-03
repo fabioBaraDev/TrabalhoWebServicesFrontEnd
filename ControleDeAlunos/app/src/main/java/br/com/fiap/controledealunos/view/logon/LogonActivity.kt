@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import br.com.fiap.controledealunos.R
 import br.com.fiap.controledealunos.view.main.MainActivity
