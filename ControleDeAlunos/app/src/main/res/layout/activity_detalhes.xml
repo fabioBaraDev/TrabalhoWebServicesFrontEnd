@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.alunos.DetalhesActivity">
+
+    <Button
+        android:id="@+id/bt_extrato"
+        android:layout_width="126dp"
+        android:layout_height="117dp"
+        android:layout_margin="@dimen/main_button_margin"
+        android:background="@drawable/round_button"
+        android:text="@string/txt_button_extrato"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tx_detalhes_nome"
+        app:layout_constraintVertical_bias="0.145" />
+
+    <Button
+        android:id="@+id/bt_deletar"
+        android:layout_width="126dp"
+        android:layout_height="117dp"
+        android:layout_margin="@dimen/main_button_margin"
+        android:background="@drawable/round_button"
+        android:text="@string/txt_button_deletar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toEndOf="@+id/bt_extrato"
+        app:layout_constraintTop_toBottomOf="@+id/tx_detalhes_nome"
+        app:layout_constraintVertical_bias="0.149" />
+
+    <TextView
+        android:id="@+id/tx_detalhes_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fulado da Silva Salro"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

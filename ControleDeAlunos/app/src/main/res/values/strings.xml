@@ -14,6 +14,7 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="txt_button_extrato">Extrato</string>
+    <string name="txt_button_deletar">Deletar</string>
     <string name="txt_alunos_todos">Alunos</string>
     <string name="txt_alunos_pesquisar">Pesquisar Alunos</string>
     <string name="txt_cadstrar_alunos">Cadastrar</string>
@@ -21,7 +22,7 @@
     <string name="txt_pagar">Parar</string>
 
     <string name="tx_lista_alunos">Lista de Alunos</string>
-    <string name="item_id_aluno" >1</string>
+    <string name="item_id_aluno">1</string>
     <string name="item_nome_aluno">Teste</string>
 
 </resources>
