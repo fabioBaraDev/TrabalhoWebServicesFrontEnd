@@ -7,7 +7,7 @@
     tools:context=".view.alunos.DetalhesActivity">
 
     <Button
-        android:id="@+id/bt_extrato"
+        android:id="@+id/bt_habilitar"
         android:layout_width="126dp"
         android:layout_height="117dp"
         android:layout_margin="@dimen/main_button_margin"
@@ -21,6 +21,20 @@
         app:layout_constraintVertical_bias="0.145" />
 
     <Button
+        android:id="@+id/bt_extrato"
+        android:layout_width="126dp"
+        android:layout_height="117dp"
+        android:layout_margin="@dimen/main_button_margin"
+        android:background="@drawable/round_button"
+        android:text="@string/txt_button_extrato"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tx_detalhes_nome"
+        app:layout_constraintVertical_bias="0.403" />
+
+    <Button
         android:id="@+id/bt_deletar"
         android:layout_width="126dp"
         android:layout_height="117dp"
@@ -30,7 +44,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toEndOf="@+id/bt_extrato"
+        app:layout_constraintStart_toEndOf="@+id/bt_habilitar"
         app:layout_constraintTop_toBottomOf="@+id/tx_detalhes_nome"
         app:layout_constraintVertical_bias="0.149" />
 

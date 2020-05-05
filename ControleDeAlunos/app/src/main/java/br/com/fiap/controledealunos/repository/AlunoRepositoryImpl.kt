@@ -10,13 +10,14 @@ import retrofit2.Response
 class AlunoRepositoryImpl(val alunoService: ListaAlunosService) : AlunoRepository {
 
     override fun getAluno(
+        nome: String,
         sort: String,
         size: Int,
         onComplete: (List<Aluno>?) -> Unit,
         onError: (Throwable?) -> Unit
     ) {
         alunoService
-            .getAlunos(sort, size)
+            .getAlunos(nome, sort, size)
             .enqueue(object : Callback<List<Aluno>> {
 
             override fun onFailure(call: Call<List<Aluno>>, t: Throwable) {

@@ -63,7 +63,7 @@ class AlunosViewHolder(
     }
 
     interface OnNoteListener {
-        fun onNoteClick(position: Int, nome: String)
+        fun onNoteClick(position: Int, nomePesquisado: String)
     }
 }
 

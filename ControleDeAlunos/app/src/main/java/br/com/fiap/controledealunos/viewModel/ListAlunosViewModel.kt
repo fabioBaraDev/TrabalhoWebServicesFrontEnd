@@ -1,4 +1,4 @@
-package br.com.fiap.controledealunos.list
+package br.com.fiap.controledealunos.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,10 +11,10 @@ class ListAlunosViewModel(val alunoRepository: AlunoRepository) : ViewModel() {
     val alunos = MutableLiveData<List<Aluno>>()
     val messageError = MutableLiveData<String>()
 
-    fun getAlunos() {
+    fun getAlunos(nome: String) {
         isLoading.value = true
-        alunoRepository.getAluno(sort = "number,asc",
-            size = 150,
+        alunoRepository.getAluno(nome, sort = "number,asc",
+            size = 1500,
             onComplete = {
                 isLoading.value = false
                 alunos.value = it
