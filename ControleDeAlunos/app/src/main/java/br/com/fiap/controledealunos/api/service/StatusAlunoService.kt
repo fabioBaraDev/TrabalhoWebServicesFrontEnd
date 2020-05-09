@@ -9,12 +9,12 @@ import retrofit2.http.*
 
 interface StatusAlunoService{
 
-    @GET("/cadastro/aluno/status/{id}")
-    fun getAlunos(
+    @GET("/cadastro/alunos/status/{id}")
+    fun getStatusAluno(
         @Path("id") id: String
     ) : Call<Status>
 
-    @DELETE("/cadastro/aluno/{id}")
+    @DELETE("/cadastro/alunos/{id}")
     fun deleteAluno(
         @Path("id") id: String
     ):Call<Void>

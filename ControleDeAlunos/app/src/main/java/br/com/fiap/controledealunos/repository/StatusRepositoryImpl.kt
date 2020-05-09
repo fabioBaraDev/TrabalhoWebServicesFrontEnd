@@ -9,12 +9,12 @@ import retrofit2.Response
 
 class StatusRepositoryImpl(val statusAlunoService: StatusAlunoService) : StatusRepository {
 
-    override fun getStatus(
+    override fun getStatusAluno(
         id: String,
         onComplete: (Status?) -> Unit,
         onError: (Throwable?) -> Unit
     ) {
-        statusAlunoService.getAlunos(id).enqueue(object : Callback<Status> {
+        statusAlunoService.getStatusAluno(id).enqueue(object : Callback<Status> {
             override fun onFailure(call: Call<Status>, t: Throwable) {
                 onError(t)
             }

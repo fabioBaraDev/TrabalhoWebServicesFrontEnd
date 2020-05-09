@@ -6,15 +6,24 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import br.com.fiap.controledealunos.R
+import br.com.fiap.controledealunos.Session
+import br.com.fiap.controledealunos.model.User
 import br.com.fiap.controledealunos.view.main.MainActivity
+import br.com.fiap.controledealunos.viewModel.AuthViewModel
 import com.tomer.fadingtextview.FadingTextView
-
 import kotlinx.android.synthetic.main.activity_logon.*
+import org.koin.android.viewmodel.ext.android.viewModel
 import java.util.regex.Pattern
 
+
 class LogonActivity : AppCompatActivity() {
+
+    val auth: AuthViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,14 +45,38 @@ class LogonActivity : AppCompatActivity() {
     }
 
     private fun validaCredenciais() {
+        val nome = findViewById(R.id.et_usuario_email) as TextView
+        val senha = findViewById(R.id.et_senha) as TextView
 
-        if (et_senha.text.toString() == "123") {
-            val intent = Intent(this@LogonActivity, MainActivity::class.java)
-            startActivity(intent)
-            this@LogonActivity.finish()
-            return
-        }
+        var user = User(nome.text.toString(), senha.text.toString())
 
+        auth.logon(user)
+
+        auth.messageError.observe(this, Observer {
+            if (it != "") {
+                trataErro()
+            }
+        })
+
+        auth.tokenUser.observe(this, Observer {
+
+
+            if (it.token.isNullOrEmpty()) {
+                trataErro()
+            } else {
+
+                Session.data["token"] = it.token
+
+                val intent = Intent(this@LogonActivity, MainActivity::class.java)
+                startActivity(intent)
+                this@LogonActivity.finish()
+
+                Toast.makeText(this, "Bem Vindo", Toast.LENGTH_LONG).show()
+            }
+        })
+    }
+
+    private fun trataErro() {
         showToolTip("Senha ou email invalidos")
         et_senha.setTextColor(Color.RED)
         et_usuario_email.setTextColor(Color.RED)
@@ -55,11 +88,12 @@ class LogonActivity : AppCompatActivity() {
 
         abstract class LocalTextWatcher() : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int){ }
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 hideTP()
             }
+
             abstract fun hideTP()
         }
 

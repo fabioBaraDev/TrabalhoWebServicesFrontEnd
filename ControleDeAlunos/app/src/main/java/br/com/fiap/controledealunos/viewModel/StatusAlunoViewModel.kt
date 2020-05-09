@@ -62,7 +62,7 @@ class StatusAlunoViewModel(val statusAlunoRepository: StatusRepository) : ViewMo
 
     fun getStatusAluno(id: String) {
         isLoading.value = true
-        statusAlunoRepository.getStatus(id = id,
+        statusAlunoRepository.getStatusAluno(id = id,
             onComplete = {
                 isLoading.value = false
                 statusAluno.value = it

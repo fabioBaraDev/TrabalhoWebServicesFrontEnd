@@ -12,7 +12,7 @@
         android:layout_height="117dp"
         android:layout_margin="@dimen/main_button_margin"
         android:background="@drawable/round_button"
-        android:text="@string/txt_button_extrato"
+        android:text="@string/txt_button_habilitar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.161"

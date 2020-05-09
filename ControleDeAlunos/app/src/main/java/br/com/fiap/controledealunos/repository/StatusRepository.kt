@@ -6,7 +6,7 @@ import br.com.fiap.controledealunos.model.Status
 import okhttp3.RequestBody
 
 interface StatusRepository {
-    fun getStatus(
+    fun getStatusAluno(
         id: String,
         onComplete: (Status?) -> Unit,
         onError: (Throwable?) -> Unit
