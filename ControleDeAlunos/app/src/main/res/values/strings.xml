@@ -28,6 +28,11 @@
     <string name="bt_add_adm">Adicionar Administrador</string>
     <string name="bt_logout">logout</string>
 
+    <string name="tx_logradouro_detalhe">Logradouro</string>
+    <string name="tx_numero_detalhe">numero</string>
+    <string name="tx_cep_detalhe">cep</string>
+    <string name="tx_complemento_detalhe">complemento</string>
+    <string name="tv_detalhe_endereco">Endereco</string>
 
     <string name="tx_lista_alunos">Lista de Alunos</string>
     <string name="item_id_aluno">1</string>
