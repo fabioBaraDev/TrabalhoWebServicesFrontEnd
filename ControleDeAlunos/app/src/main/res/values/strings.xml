@@ -17,13 +17,16 @@
     <string name="txt_button_extrato">Extrato</string>
     <string name="txt_button_deletar">Deletar</string>
     <string name="txt_pesquisar">Pesquisar Alunos</string>
-    <string name="txt_alunos_todos">Alunos</string>
     <string name="txt_alunos_pesquisar">Pesquisar Alunos</string>
+    <string name="bt_adicionar_aluno">Adicionar Aluno</string>
+    <string name="bt_adicionar_adm">Adicionar ADM</string>
     <string name="txt_cadstrar_alunos">Cadastrar</string>
     <string name="txt_ativar">Ativar e Desativar aluno</string>
     <string name="txt_pagar">Parar</string>
     <string name="tb_hint">Nome</string>
     <string name="bt_nova_pesquisa">Nova Pesquisa</string>
+    <string name="bt_add_adm">Adicionar Administrador</string>
+    <string name="bt_logout">logout</string>
 
 
     <string name="tx_lista_alunos">Lista de Alunos</string>

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.fiap.controledealunos.R
 import br.com.fiap.controledealunos.viewModel.ListAlunosViewModel
 import br.com.fiap.controledealunos.recyclerviews.AlunosViewHolder
+import br.com.fiap.controledealunos.view.logon.LogonActivity
 import br.com.fiap.controledealunos.view.main.MainActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -22,7 +23,8 @@ class AlunosListaActivity : AppCompatActivity(), AlunosViewHolder.OnNoteListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alunos_lista)
 
-        onClickNovaPesquisa();
+        onClickNovaPesquisa()
+        onClickLogout()
 
         listAlunosViewModel.getAlunos(getName("nome"))
 
@@ -44,6 +46,15 @@ class AlunosListaActivity : AppCompatActivity(), AlunosViewHolder.OnNoteListener
         })
     }
 
+    private fun onClickLogout(){
+        val btLogout = findViewById<Button>(R.id.bt_logout_alunos_lista)
+        btLogout.setOnClickListener {
+            val intent = Intent(this@AlunosListaActivity, LogonActivity::class.java)
+            startActivity(intent)
+            this@AlunosListaActivity.finish()
+        }
+    }
+
     private fun onClickNovaPesquisa(){
 
         val bt = findViewById<Button>(R.id.bt_nova_pesquisa)
@@ -60,7 +71,6 @@ class AlunosListaActivity : AppCompatActivity(), AlunosViewHolder.OnNoteListener
         if (extras != null) {
             valueNome = extras.getString(chave).toString()
         }
-
         return valueNome
     }
 

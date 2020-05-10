@@ -11,16 +11,46 @@
         android:layout_width="172dp"
         android:layout_height="74dp"
         android:layout_margin="@dimen/main_button_margin"
+        android:layout_marginTop="32dp"
         android:background="@drawable/round_button"
-        android:text="@string/txt_alunos_todos"
+        android:text="@string/txt_alunos_pesquisar"
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_nome_pesquisar"
-        app:layout_constraintVertical_bias="0.859"
+        app:layout_constraintVertical_bias="0.055" />
 
-        />
+    <Button
+        android:id="@+id/bt_adicionar_adm"
+        android:layout_width="165dp"
+        android:layout_height="68dp"
+        android:layout_margin="@dimen/main_button_margin"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="120dp"
+
+        android:background="@drawable/round_button"
+        android:text="@string/bt_adicionar_adm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_adicionar_aluno"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_alunos_pesquisar"
+        app:layout_constraintVertical_bias="0.875" />
+
+    <Button
+        android:id="@+id/bt_adicionar_aluno"
+        android:layout_width="192dp"
+        android:layout_height="69dp"
+        android:layout_margin="@dimen/main_button_margin"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/round_button"
+        android:text="@string/bt_adicionar_aluno"
+
+        app:layout_constraintBottom_toBottomOf="@+id/bt_adicionar_adm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bt_adicionar_adm" />
 
     <EditText
         android:id="@+id/et_nome_pesquisar"
@@ -28,24 +58,39 @@
         android:layout_height="45dp"
         android:layout_marginTop="100dp"
         android:ems="10"
+        android:hint="@string/tb_hint"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.347"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tx_pesquisa"
-        android:hint="@string/tb_hint"/>
+        app:layout_constraintTop_toBottomOf="@+id/tx_pesquisa" />
 
     <TextView
         android:id="@+id/tx_pesquisa"
         android:layout_width="219dp"
         android:layout_height="34dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="@string/txt_pesquisar"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bt_logout_logon"
+        android:layout_width="82dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/round_gray_button"
+        android:text="@string/bt_logout"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/tx_pesquisa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.897"
+        app:layout_constraintStart_toEndOf="@+id/tx_pesquisa"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".view.alunos.DetalhesActivity"></activity>
+        <activity android:name=".view.usuario.AdicionarUsuarioActivity"></activity>
+        <activity android:name=".view.alunos.AdicionarAlunoActivity" />
+        <activity android:name=".view.alunos.DetalhesActivity" />
         <activity android:name=".view.alunos.AlunosListaActivity" />
         <activity
             android:name=".view.logon.LogonActivity"

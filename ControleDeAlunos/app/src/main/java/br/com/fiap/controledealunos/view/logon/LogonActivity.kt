@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import br.com.fiap.controledealunos.R
 import br.com.fiap.controledealunos.Session
 import br.com.fiap.controledealunos.model.User
+import br.com.fiap.controledealunos.util.Validadores
 import br.com.fiap.controledealunos.view.main.MainActivity
 import br.com.fiap.controledealunos.viewModel.AuthViewModel
 import com.tomer.fadingtextview.FadingTextView
@@ -31,7 +32,6 @@ class LogonActivity : AppCompatActivity() {
 
         buttonControl()
         fieldListeners()
-
     }
 
     private fun buttonControl() {
@@ -45,8 +45,8 @@ class LogonActivity : AppCompatActivity() {
     }
 
     private fun validaCredenciais() {
-        val nome = findViewById(R.id.et_usuario_email) as TextView
-        val senha = findViewById(R.id.et_senha) as TextView
+        val nome = findViewById(R.id.et_email_logon) as TextView
+        val senha = findViewById(R.id.et_senha_logon) as TextView
 
         var user = User(nome.text.toString(), senha.text.toString())
 
@@ -59,8 +59,6 @@ class LogonActivity : AppCompatActivity() {
         })
 
         auth.tokenUser.observe(this, Observer {
-
-
             if (it.token.isNullOrEmpty()) {
                 trataErro()
             } else {
@@ -78,13 +76,13 @@ class LogonActivity : AppCompatActivity() {
 
     private fun trataErro() {
         showToolTip("Senha ou email invalidos")
-        et_senha.setTextColor(Color.RED)
-        et_usuario_email.setTextColor(Color.RED)
+        et_senha_logon.setTextColor(Color.RED)
+        et_email_logon.setTextColor(Color.RED)
     }
 
     private fun fieldListeners() {
 
-        et_usuario_email.setOnFocusChangeListener { view, hasFocus -> validarEmail() }
+        et_email_logon.setOnFocusChangeListener { view, hasFocus -> validarEmail() }
 
         abstract class LocalTextWatcher() : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
@@ -97,13 +95,13 @@ class LogonActivity : AppCompatActivity() {
             abstract fun hideTP()
         }
 
-        et_senha.addTextChangedListener(object : LocalTextWatcher() {
+        et_senha_logon.addTextChangedListener(object : LocalTextWatcher() {
             override fun hideTP() {
                 hideToolTip()
             }
         })
 
-        et_usuario_email.addTextChangedListener(object : LocalTextWatcher() {
+        et_email_logon.addTextChangedListener(object : LocalTextWatcher() {
             override fun hideTP() {
                 hideToolTip()
             }
@@ -111,8 +109,8 @@ class LogonActivity : AppCompatActivity() {
     }
 
     private fun validarEmail(): Boolean {
-        if (!isEmailValid(et_usuario_email.text.toString())) {
-            et_usuario_email.setTextColor(Color.RED);
+        if (!Validadores.isEmailValid(et_email_logon.text.toString())) {
+            et_email_logon.setTextColor(Color.RED);
             showToolTip("e-mail invalido!")
             bt_logon.isEnabled = false
             bt_logon.isClickable = false
@@ -124,17 +122,6 @@ class LogonActivity : AppCompatActivity() {
         return true
     }
 
-    private fun isEmailValid(email: String): Boolean {
-        return Pattern.compile(
-            "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]|[\\w-]{2,}))@"
-                    + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
-                    + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
-                    + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
-                    + "[0-9]{1,2}|25[0-5]|2[0-4][0-9]))|"
-                    + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$"
-        ).matcher(email).matches()
-    }
-
     private fun showToolTip(msg: String) {
         val fadingTextView = findViewById(R.id.tv_fadingTV) as FadingTextView
         fadingTextView.text = msg
@@ -142,8 +129,8 @@ class LogonActivity : AppCompatActivity() {
 
     private fun hideToolTip() {
         val fadingTextView = findViewById(R.id.tv_fadingTV) as FadingTextView
-        et_usuario_email.setTextColor(Color.BLACK);
-        et_senha.setTextColor(Color.BLACK);
+        et_email_logon.setTextColor(Color.BLACK);
+        et_senha_logon.setTextColor(Color.BLACK);
         fadingTextView.text = ""
     }
 }

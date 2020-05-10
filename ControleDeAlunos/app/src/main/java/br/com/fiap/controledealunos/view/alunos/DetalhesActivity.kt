@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import br.com.fiap.controledealunos.R
 import br.com.fiap.controledealunos.model.AlunoBody
 import br.com.fiap.controledealunos.model.CreditoAlunoBody
+import br.com.fiap.controledealunos.view.logon.LogonActivity
 import br.com.fiap.controledealunos.viewModel.StatusAlunoViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -37,6 +38,7 @@ class DetalhesActivity : AppCompatActivity() {
         getStatusAluno(valueID)
         onCLickHabilitar(valueID, valueNomePesquisado)
         onClickDeletar(valueID, valueNomePesquisado)
+        onClickLogout()
     }
 
     private fun onClickDeletar(id: String, nome: String){
@@ -53,6 +55,15 @@ class DetalhesActivity : AppCompatActivity() {
                     Toast.makeText(this, it, Toast.LENGTH_LONG).show()
                 }
             })
+        }
+    }
+
+    private fun onClickLogout(){
+        val btLogout = findViewById<Button>(R.id.bt_logout_detalhes)
+        btLogout.setOnClickListener {
+            val intent = Intent(this@DetalhesActivity, LogonActivity::class.java)
+            startActivity(intent)
+            this@DetalhesActivity.finish()
         }
     }
 

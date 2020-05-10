@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".view.alunos.AlunosListaActivity">
 
+    <Button
+        android:id="@+id/bt_logout_alunos_lista"
+        android:layout_width="82dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/round_gray_button"
+        android:text="@string/bt_logout"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/tx_lista_aluno"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.897"
+        app:layout_constraintStart_toEndOf="@+id/tx_pesquisa"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="358dp"
@@ -23,10 +39,11 @@
         android:text="@string/tx_lista_alunos"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintEnd_toStartOf="@+id/bt_logout_alunos_lista"
+        app:layout_constraintHorizontal_bias="0.156"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.34" />
 
     <Button
         android:id="@+id/bt_nova_pesquisa"

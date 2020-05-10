@@ -9,7 +9,7 @@
     tools:context=".view.logon.LogonActivity">
 
     <EditText
-        android:id="@+id/et_senha"
+        android:id="@+id/et_senha_logon"
         android:layout_width="274dp"
         android:layout_height="47dp"
         android:layout_marginBottom="68dp"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:text="Logon no aplicativo"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_usuario_email"
+        app:layout_constraintBottom_toTopOf="@+id/et_email_logon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,14 +45,14 @@
         app:layout_constraintVertical_bias="0.777" />
 
     <EditText
-        android:id="@+id/et_usuario_email"
+        android:id="@+id/et_email_logon"
         android:layout_width="272dp"
         android:layout_height="54dp"
         android:layout_marginBottom="32dp"
         android:ems="10"
         android:hint="Email*"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/et_senha"
+        app:layout_constraintBottom_toTopOf="@+id/et_senha_logon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
