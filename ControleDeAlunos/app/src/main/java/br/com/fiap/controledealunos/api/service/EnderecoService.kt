@@ -7,7 +7,7 @@ import retrofit2.http.Path
 
 interface EnderecoService {
 
-    @GET("/cadastro/endereco/{id}")
+    @GET("/endereco/{id}")
     fun getAlunos(
         @Path("id") id: String
     ) : Call<Endereco>

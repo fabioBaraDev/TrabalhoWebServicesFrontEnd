@@ -10,4 +10,10 @@ interface AlunoRepository {
         onComplete:(List<Aluno>?) -> Unit,
         onError:(Throwable?) -> Unit
     )
+
+    fun criarAluno(
+        aluno: Aluno,
+        onComplete: (String?) -> Unit,
+        onError: (Throwable?) -> Unit
+    )
 }

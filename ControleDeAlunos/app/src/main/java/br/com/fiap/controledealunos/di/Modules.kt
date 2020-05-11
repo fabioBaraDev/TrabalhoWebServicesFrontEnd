@@ -40,6 +40,7 @@ val viewModelModule = module {
     viewModel { AuthViewModel(get()) }
     viewModel { UsuariosViewModel(get()) }
     viewModel { EnderecoViewModel(get()) }
+    viewModel { AlunoViewModel(get()) }
 }
 val repositoryModule = module {
     single<AlunoRepository> { AlunoRepositoryImpl(get()) }
@@ -50,7 +51,7 @@ val repositoryModule = module {
 }
 val networkModule = module {
     single<Interceptor> { AuthInterceptor() }
-    single { createNetworkClient(get()).create(ListaAlunosService::class.java) }
+    single { createNetworkClient(get()).create(AlunoService::class.java) }
     single { createNetworkClient(get()).create(StatusAlunoService::class.java) }
     single { createNetworkClient(get()).create(AuthService::class.java) }
     single { createNetworkClient(get()).create(UsuariosService::class.java) }
