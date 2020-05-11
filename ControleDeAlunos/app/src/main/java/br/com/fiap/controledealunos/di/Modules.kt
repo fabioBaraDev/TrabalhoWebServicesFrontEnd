@@ -1,15 +1,9 @@
 package br.com.fiap.controledealunos.di
 
 import br.com.fiap.controledealunos.api.interceptor.AuthInterceptor
-import br.com.fiap.controledealunos.api.service.AuthService
-import br.com.fiap.controledealunos.viewModel.ListAlunosViewModel
-import br.com.fiap.controledealunos.api.service.ListaAlunosService
-import br.com.fiap.controledealunos.api.service.StatusAlunoService
-import br.com.fiap.controledealunos.api.service.UsuariosService
+import br.com.fiap.controledealunos.api.service.*
 import br.com.fiap.controledealunos.repository.*
-import br.com.fiap.controledealunos.viewModel.AuthViewModel
-import br.com.fiap.controledealunos.viewModel.StatusAlunoViewModel
-import br.com.fiap.controledealunos.viewModel.UsuariosViewModel
+import br.com.fiap.controledealunos.viewModel.*
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -45,12 +39,14 @@ val viewModelModule = module {
     viewModel { StatusAlunoViewModel(get()) }
     viewModel { AuthViewModel(get()) }
     viewModel { UsuariosViewModel(get()) }
+    viewModel { EnderecoViewModel(get()) }
 }
 val repositoryModule = module {
     single<AlunoRepository> { AlunoRepositoryImpl(get()) }
     single<StatusRepository> { StatusRepositoryImpl(get()) }
     single<AuthRepository> { AuthRepositoryImpl(get()) }
     single<UsuariosRepository> { UsuarioRepositoryImpl(get()) }
+    single<EnderecoRepository> { EnderecoRepositoryImpl(get()) }
 }
 val networkModule = module {
     single<Interceptor> { AuthInterceptor() }
@@ -58,5 +54,6 @@ val networkModule = module {
     single { createNetworkClient(get()).create(StatusAlunoService::class.java) }
     single { createNetworkClient(get()).create(AuthService::class.java) }
     single { createNetworkClient(get()).create(UsuariosService::class.java) }
+    single { createNetworkClient(get()).create(EnderecoService::class.java) }
     single { createOkhttpClientAuth(get()) }
 }

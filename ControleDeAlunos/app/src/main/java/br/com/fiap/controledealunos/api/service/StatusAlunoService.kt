@@ -1,8 +1,8 @@
 package br.com.fiap.controledealunos.api.service
 
 import br.com.fiap.controledealunos.model.Aluno
-import br.com.fiap.controledealunos.model.CreditoAlunoBody
 import br.com.fiap.controledealunos.model.Status
+import br.com.fiap.controledealunos.model.StatusAlunoBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -19,13 +19,13 @@ interface StatusAlunoService{
         @Path("id") id: String
     ):Call<Void>
 
-    @POST("/transacoes/credito/ativar/")
+    @POST("/cadastro/alunos/ativar")
     fun habilitar(
-        @Body aluno : CreditoAlunoBody
+        @Body aluno : StatusAlunoBody
     ):Call<Void>
 
-    @POST("/transacoes/credito/desativar/")
+    @POST("/cadastro/alunos/desativar")
     fun desabilitar(
-        @Body aluno : CreditoAlunoBody
+        @Body aluno : StatusAlunoBody
     ):Call<Void>
 }

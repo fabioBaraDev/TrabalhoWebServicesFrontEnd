@@ -33,6 +33,9 @@
     <string name="tx_cep_detalhe">cep</string>
     <string name="tx_complemento_detalhe">complemento</string>
     <string name="tv_detalhe_endereco">Endereco</string>
+    <string name="tv_numero_cartao">Numero do Cartão</string>
+    <string name="tv_novo_aluno">Novo Aluno</string>
+    <string name="bt_add_aluno">Adicionar Aluno</string>
 
     <string name="tx_lista_alunos">Lista de Alunos</string>
     <string name="item_id_aluno">1</string>

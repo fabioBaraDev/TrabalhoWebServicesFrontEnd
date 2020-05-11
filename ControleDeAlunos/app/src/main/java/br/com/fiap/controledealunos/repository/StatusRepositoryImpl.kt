@@ -1,8 +1,8 @@
 package br.com.fiap.controledealunos.repository
 
 import br.com.fiap.controledealunos.api.service.StatusAlunoService
-import br.com.fiap.controledealunos.model.CreditoAlunoBody
 import br.com.fiap.controledealunos.model.Status
+import br.com.fiap.controledealunos.model.StatusAlunoBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,7 +31,7 @@ class StatusRepositoryImpl(val statusAlunoService: StatusAlunoService) : StatusR
     }
 
     override fun setStatusHabilitar(
-        aluno: CreditoAlunoBody,
+        aluno: StatusAlunoBody,
         onComplete: (String?) -> Unit,
         onError: (Throwable?) -> Unit
     ) {
@@ -51,7 +51,7 @@ class StatusRepositoryImpl(val statusAlunoService: StatusAlunoService) : StatusR
     }
 
     override fun setStatusDesabilitar(
-        aluno: CreditoAlunoBody,
+        aluno: StatusAlunoBody,
         onComplete: (String?) -> Unit,
         onError: (Throwable?) -> Unit
     ) {

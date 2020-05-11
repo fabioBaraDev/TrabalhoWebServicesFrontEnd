@@ -35,20 +35,6 @@
         app:layout_constraintVertical_bias="0.145" />
 
     <Button
-        android:id="@+id/bt_extrato"
-        android:layout_width="126dp"
-        android:layout_height="117dp"
-        android:layout_margin="@dimen/main_button_margin"
-        android:background="@drawable/round_button"
-        android:text="@string/txt_button_extrato"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tx_detalhes_nome"
-        app:layout_constraintVertical_bias="0.403" />
-
-    <Button
         android:id="@+id/bt_deletar"
         android:layout_width="126dp"
         android:layout_height="117dp"
@@ -81,14 +67,13 @@
         android:id="@+id/tl_detalhes"
         android:layout_width="365dp"
         android:layout_height="99dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="200dp"
         android:stretchColumns="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_extrato"
-        app:layout_constraintVertical_bias="0.436">
+        app:layout_constraintTop_toBottomOf="@+id/tx_detalhe_endereco">
 
         <TableRow>
 
@@ -150,14 +135,13 @@
         android:id="@+id/tx_detalhe_endereco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
         android:text="@string/tv_detalhe_endereco"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tl_detalhes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_extrato"
-        app:layout_constraintVertical_bias="0.74" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_habilitar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

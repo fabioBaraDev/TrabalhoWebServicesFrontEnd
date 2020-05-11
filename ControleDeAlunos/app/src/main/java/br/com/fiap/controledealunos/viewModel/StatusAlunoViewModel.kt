@@ -2,8 +2,8 @@ package br.com.fiap.controledealunos.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.fiap.controledealunos.model.CreditoAlunoBody
 import br.com.fiap.controledealunos.model.Status
+import br.com.fiap.controledealunos.model.StatusAlunoBody
 import br.com.fiap.controledealunos.repository.StatusRepository
 
 class StatusAlunoViewModel(val statusAlunoRepository: StatusRepository) : ViewModel() {
@@ -29,7 +29,7 @@ class StatusAlunoViewModel(val statusAlunoRepository: StatusRepository) : ViewMo
             })
     }
 
-    fun setDesabilitar(aluno: CreditoAlunoBody) {
+    fun setDesabilitar(aluno: StatusAlunoBody) {
         isLoading.value = true
         statusAlunoRepository.setStatusDesabilitar(aluno,
             onComplete = {
@@ -44,7 +44,7 @@ class StatusAlunoViewModel(val statusAlunoRepository: StatusRepository) : ViewMo
             })
     }
 
-    fun setHabilitar(aluno: CreditoAlunoBody) {
+    fun setHabilitar(aluno: StatusAlunoBody) {
         isLoading.value = true
         statusAlunoRepository.setStatusHabilitar(aluno,
             onComplete = {

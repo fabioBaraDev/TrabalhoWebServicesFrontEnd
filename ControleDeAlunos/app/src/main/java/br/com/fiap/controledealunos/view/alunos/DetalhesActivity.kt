@@ -8,15 +8,17 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import br.com.fiap.controledealunos.R
-import br.com.fiap.controledealunos.model.AlunoBody
-import br.com.fiap.controledealunos.model.CreditoAlunoBody
+import br.com.fiap.controledealunos.model.Endereco
+import br.com.fiap.controledealunos.model.StatusAlunoBody
 import br.com.fiap.controledealunos.view.logon.LogonActivity
+import br.com.fiap.controledealunos.viewModel.EnderecoViewModel
 import br.com.fiap.controledealunos.viewModel.StatusAlunoViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetalhesActivity : AppCompatActivity() {
 
     val statusAlunoViewModel: StatusAlunoViewModel by viewModel()
+    val enderecoAlunoViewModel: EnderecoViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +38,27 @@ class DetalhesActivity : AppCompatActivity() {
         nome.text = valueNome
 
         getStatusAluno(valueID)
+        getEnderecoAluno(valueID)
         onCLickHabilitar(valueID, valueNomePesquisado)
         onClickDeletar(valueID, valueNomePesquisado)
         onClickLogout()
+    }
+
+    private fun getEnderecoAluno(id: String) {
+        enderecoAlunoViewModel.getEndereco(id)
+        enderecoAlunoViewModel.statusEndereco.observe(this, Observer {
+            popuparEnderecoFields(it)
+        })
+        enderecoAlunoViewModel.messageError.observe(this, Observer {
+            Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+        })
+    }
+
+    private fun popuparEnderecoFields(endereco: Endereco?) {
+       findViewById<TextView>(R.id.tv_detalhe_logradouro).text = endereco?.logradouro
+       findViewById<TextView>(R.id.tv_detalhe_numero).text = endereco?.numero
+       findViewById<TextView>(R.id.tv_detalhe_complemento).text = endereco?.complemento
+       findViewById<TextView>(R.id.tv_detalhe_cep).text = endereco?.cep
     }
 
     private fun onClickDeletar(id: String, nome: String){
@@ -72,9 +92,9 @@ class DetalhesActivity : AppCompatActivity() {
         btHabilitar.setOnClickListener {
 
             if(btHabilitar.text.equals("Habilitar")){
-                statusAlunoViewModel.setHabilitar(criaBodyReq(id))
+                statusAlunoViewModel.setHabilitar(StatusAlunoBody(id, "true"))
             }else{
-                statusAlunoViewModel.setDesabilitar(criaBodyReq(id))
+                statusAlunoViewModel.setDesabilitar(StatusAlunoBody(id, "false"))
             }
 
             statusAlunoViewModel.messageError.observe(this, Observer {
@@ -96,10 +116,6 @@ class DetalhesActivity : AppCompatActivity() {
         intent.putExtra("nome", nome)
         startActivity(intent)
         this@DetalhesActivity.finish()
-    }
-
-    private fun criaBodyReq(id : String): CreditoAlunoBody {
-        return CreditoAlunoBody(AlunoBody("fulano", "123", id), "0.0")
     }
 
     private fun getStatusAluno(id: String) {

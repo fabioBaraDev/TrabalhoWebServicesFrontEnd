@@ -1,9 +1,7 @@
 package br.com.fiap.controledealunos.repository
 
-import br.com.fiap.controledealunos.model.Aluno
-import br.com.fiap.controledealunos.model.CreditoAlunoBody
 import br.com.fiap.controledealunos.model.Status
-import okhttp3.RequestBody
+import br.com.fiap.controledealunos.model.StatusAlunoBody
 
 interface StatusRepository {
     fun getStatusAluno(
@@ -13,13 +11,13 @@ interface StatusRepository {
     )
 
     fun setStatusHabilitar(
-        aluno: CreditoAlunoBody,
+        aluno: StatusAlunoBody,
         onComplete: (String?) -> Unit,
         onError: (Throwable?) -> Unit
     )
 
     fun setStatusDesabilitar(
-        aluno: CreditoAlunoBody,
+        aluno: StatusAlunoBody,
         onComplete: (String?) -> Unit,
         onError: (Throwable?) -> Unit
     )
